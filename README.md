@@ -27,7 +27,9 @@ Everything on the page comes from one file: `src/data/site.ts`. The components o
 - `links`: GitHub, LinkedIn, email, and this site's own repo (shown in the footer)
 - `projects`: each one has a problem, what I built, one decision, and what I'd do next time. Optional fields left `undefined` don't show up. There's a commented-out slot at the end for the next project.
 - `experience`: dates are `YYYY-MM`. Leave out `end` for the current role.
+- `howIWork`: the intro line and the four steps in the "How I work" section
 - `clientSites`: a site only appears once it has a `url` and `approved: true`
+- `SITE_URL`: the site's address, used for SEO and link previews
 - `publications`, `awards`, `skills`
 
 Search the file for `TODO` to see what's still missing.
@@ -67,4 +69,4 @@ Optional custom domain:
 
 1. In the Vercel project, open **Settings → Domains** and add the domain.
 2. Add the DNS records Vercel shows you at your domain registrar.
-3. Under **Settings → Environment Variables**, add `NEXT_PUBLIC_SITE_URL` with the full address (e.g. `https://example.com`) and redeploy. The sitemap, robots.txt and link previews then use your domain.
+3. In `src/data/site.ts`, set `SITE_URL` to the full address (e.g. `https://example.com`, no trailing slash), then commit and push. The canonical URL, sitemap, robots.txt and link previews all read from that one constant.

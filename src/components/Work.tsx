@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { projects, type Project } from "@/data/site";
+import { Star } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
 import { Row, Section } from "./Layout";
 
@@ -15,7 +16,15 @@ function ProjectEntry({ project }: { project: Project }) {
     <article>
       <Row margin={project.label}>
         <h3 className="font-serif text-xl font-medium tracking-tight">{project.title}</h3>
-        <p className="mt-0.5 text-sm text-muted">{project.context}</p>
+        <p className="mt-0.5 text-sm text-muted">
+          {project.context}
+          {project.award && (
+            <span className="wiggle-parent ml-1 inline-flex items-center gap-1 whitespace-nowrap font-medium text-fg">
+              <Star className="h-4 w-4" />
+              {project.award}.
+            </span>
+          )}
+        </p>
 
         {project.image && (
           <Image
@@ -24,7 +33,7 @@ function ProjectEntry({ project }: { project: Project }) {
             width={project.image.width}
             height={project.image.height}
             sizes="(min-width: 768px) 680px, 100vw"
-            className="mt-5 h-auto w-full border border-rule"
+            className="mt-5 h-auto w-full rounded-xl border border-rule"
           />
         )}
 
@@ -63,7 +72,7 @@ function ProjectEntry({ project }: { project: Project }) {
 
 export function Work() {
   return (
-    <Section id="work" title="Selected work" className="pb-20 pt-14">
+    <Section id="work" title="Selected work" className="pb-20 pt-2">
       <div className="space-y-14">
         {projects.map((project) => (
           <ProjectEntry key={project.title} project={project} />

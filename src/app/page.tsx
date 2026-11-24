@@ -2,6 +2,7 @@ import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HowIWork } from "@/components/HowIWork";
 import { Intro } from "@/components/Intro";
 import { Skills } from "@/components/Skills";
 import { Work } from "@/components/Work";
@@ -12,7 +13,7 @@ export default function Home() {
     <div className="mx-auto w-full max-w-[54rem] px-5 sm:px-8">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-10 focus:bg-bg focus:px-3 focus:py-2"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-10 focus:rounded-lg focus:bg-bg focus:px-3 focus:py-2"
       >
         Skip to content
       </a>
@@ -21,6 +22,7 @@ export default function Home() {
         <Intro />
         <Work />
         <Experience />
+        <HowIWork />
         <Writing />
         <Skills />
         <Contact />

@@ -4,7 +4,7 @@ import { Row, Section } from "./Layout";
 
 export function Writing() {
   return (
-    <Section id="writing" title="Writing & awards" className="pb-16 pt-14">
+    <Section id="writing" title="Writing & awards" className="pb-16 pt-2">
       <h3 className="sr-only">Publications</h3>
       <div className="space-y-6">
         {publications.map((pub) => (

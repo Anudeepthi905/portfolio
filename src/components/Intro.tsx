@@ -1,4 +1,5 @@
 import { links, profile } from "@/data/site";
+import { Squiggle } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
 import { Row } from "./Layout";
 
@@ -8,11 +9,12 @@ export function Intro() {
       <Row>
         <h1
           id="intro-heading"
-          className="font-serif text-4xl font-medium tracking-tight sm:text-[2.75rem] sm:leading-tight"
+          className="font-serif text-4xl font-medium tracking-tight sm:text-[2.9rem] sm:leading-tight"
         >
           {profile.name}
         </h1>
-        <p className="mt-2 text-muted">{profile.role}</p>
+        <Squiggle className="mt-1 h-auto w-48 sm:w-60" />
+        <p className="mt-4 text-muted">{profile.role}</p>
 
         <div className="mt-8 max-w-[36rem] space-y-4 text-lg">
           {profile.about.map((paragraph) => (

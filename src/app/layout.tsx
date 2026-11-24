@@ -1,23 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Newsreader } from "next/font/google";
-import { profile, seo, siteUrl } from "@/data/site";
+import { Fraunces, Nunito_Sans } from "next/font/google";
+import { profile, seo, SITE_URL } from "@/data/site";
 import "./globals.css";
 
-const inter = Inter({
+const nunito = Nunito_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-nunito",
 });
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-  variable: "--font-newsreader",
+  axes: ["SOFT", "WONK", "opsz"],
+  variable: "--font-fraunces",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: seo.title,
   description: seo.description,
   authors: [{ name: profile.name }],
@@ -39,14 +40,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf8f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#161412" },
+    { media: "(prefers-color-scheme: light)", color: "#fbf6ee" },
+    { media: "(prefers-color-scheme: dark)", color: "#1f1a17" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${nunito.variable} ${fraunces.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

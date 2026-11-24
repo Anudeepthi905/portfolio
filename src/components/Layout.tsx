@@ -1,3 +1,5 @@
+import { WavyRule } from "./Doodles";
+
 /**
  * Editorial two-column row: a narrow margin column for dates/labels and a
  * single reading column (max ~680px). Stacks on small screens.
@@ -22,20 +24,25 @@ export function Row({
 export function Section({
   id,
   title,
+  doodle,
   children,
   className = "",
 }: {
   id: string;
   title: string;
+  /** Optional small decorative doodle shown after the heading. */
+  doodle?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
 }) {
   const headingId = `${id}-heading`;
   return (
-    <section id={id} aria-labelledby={headingId} className={`border-t border-rule ${className}`}>
+    <section id={id} aria-labelledby={headingId} className={className}>
+      <WavyRule className="mb-14" />
       <Row className="mb-8">
-        <h2 id={headingId} className="font-serif text-2xl font-medium tracking-tight">
+        <h2 id={headingId} className="wiggle-parent inline-flex items-center gap-3 font-serif text-[1.65rem] font-medium tracking-tight">
           {title}
+          {doodle}
         </h2>
       </Row>
       {children}

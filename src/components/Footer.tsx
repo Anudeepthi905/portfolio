@@ -1,4 +1,5 @@
 import { links } from "@/data/site";
+import { WavyRule } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
 import { Row } from "./Layout";
 
@@ -8,7 +9,8 @@ export function Footer() {
   const updated = now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   return (
-    <footer className="border-t border-rule py-8 text-sm text-muted">
+    <footer className="pb-10 text-sm text-muted">
+      <WavyRule className="mb-8" />
       <Row>
         <p>
           © {now.getFullYear()} · Designed and built by Anu Deepthi

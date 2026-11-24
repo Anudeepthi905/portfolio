@@ -56,6 +56,8 @@ export type Project = {
   label: string;
   /** One line of context under the title. */
   context: string;
+  /** Optional award, shown after the context with a small star. */
+  award?: string;
   /** The write-up, in this order. Keep the four together under 90 words. */
   problem: string;
   built: string;
@@ -109,15 +111,14 @@ export type SiteLinks = {
 // ---------------------------------------------------------------------------
 
 /**
- * 1. NEXT_PUBLIC_SITE_URL (set this in Vercel if you add a custom domain)
- * 2. VERCEL_PROJECT_PRODUCTION_URL (set automatically by Vercel)
- * 3. http://localhost:3000 for local development
+ * The ONE place the site's address is set. metadataBase, the canonical URL,
+ * Open Graph/Twitter URLs, sitemap.xml and robots.txt all read from this.
+ * No trailing slash.
+ *
+ * TODO: replace with your new domain once it's connected in Vercel,
+ * e.g. "https://anudeepthi.dev".
  */
-export const siteUrl: string =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+export const SITE_URL = "https://portfolio-anu-deepthi.vercel.app";
 
 // ---------------------------------------------------------------------------
 // Content
@@ -129,13 +130,12 @@ export const profile: Profile = {
   // TODO: rewrite in your own words (drafted from the resume; there is no
   // content/about-me.md yet).
   about: [
-    "I'm a software engineer at Enspirit. I've shipped 18 client and company websites there, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
+    "I'm a software engineer at Enspirit. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
     "I studied computer science (data science) at G. Narayanamma Institute of Technology and Science, 2020–2024.",
   ],
   // TODO: one line on what you're learning right now, e.g. "Currently learning …".
   currentlyLearning: undefined,
-  // TODO: your interests, from about-me.md (e.g. art and craft, dancing).
-  interests: undefined,
+  interests: "Outside work: art and craft, and dancing.",
   email: "anudeepthi905@gmail.com",
   // TODO: add the PDF at public/Anu_Deepthi_Resume.pdf (link is broken until then).
   resumePath: "/Anu_Deepthi_Resume.pdf",
@@ -143,7 +143,7 @@ export const profile: Profile = {
 
 export const links: SiteLinks = {
   github: "https://github.com/Anudeepthi905",
-  linkedin: "https://www.linkedin.com/in/anudeepthi",
+  linkedin: "https://www.linkedin.com/in/anu-deepthi",
   email: `mailto:${profile.email}`,
   sourceRepo: "https://github.com/Anudeepthi905/portfolio",
 };
@@ -153,7 +153,8 @@ export const projects: Project[] = [
     title: "AI Health Companion",
     label: "IgniteLabs 2026",
     // TODO: add your team name if you want it shown.
-    context: "Five-person team, Enspirit IgniteLabs 2026. Won Best AI Workflow.",
+    context: "Five-person team, Enspirit IgniteLabs 2026.",
+    award: "Won Best AI Workflow",
     problem:
       "We had two weeks to build a wellness app with 14 self-guided modules that work with only a camera and microphone.",
     // TODO: name the specific modules or pieces you owned.
@@ -243,11 +244,11 @@ export const experience: Role[] = [
     company: "Enspirit",
     start: "2025-05",
     bullets: [
-      "Built and shipped 18 client and company websites across Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, GearLaunch, Safe Decisions, IGC, Family Tree, and the Enspirit website.",
+      "Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the Enspirit website, and IGC (in progress).",
       "Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.",
       "Automated end-to-end tests with Playwright and Enspirit's AURA release-validation platform for the Empath and JP+ projects.",
-      "Audited four production codebases with AI-assisted code analysis, documenting each one's stack, auth, database, CI/CD, and test setup, and verifying every finding against the source files.",
-      "Guided two interns while delivering client work, and currently building the IGC site and a Bazaarvoice integration.",
+      "Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.",
+      "Guided two interns; currently building a Bazaarvoice integration.",
     ],
   },
   {
@@ -256,9 +257,9 @@ export const experience: Role[] = [
     start: "2025-01",
     end: "2025-05",
     bullets: [
-      "Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB for the Blue Ribbon project.",
+      "Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB for Blue Ribbon.",
       "Ran functional API tests in Postman and load tests in JMeter to validate the Blue Ribbon backend.",
-      "Built client sites on Wix and Squarespace, including Paramount Tea, Empath Travel, UGO University, and Cocoacumin.",
+      "Built Wix and Squarespace sites for Paramount Tea, Empath Travel, UGO University, and Cocoacumin.",
     ],
   },
 ];
@@ -274,11 +275,9 @@ export const clientSites: ClientSite[] = [
   { name: "JP+", approved: false }, // TODO: platform, url, permission
   { name: "Encore", approved: false }, // TODO: platform, url, permission
   { name: "AHM", approved: false }, // TODO: platform, url, permission
-  { name: "GearLaunch", approved: false }, // TODO: platform, url, permission
-  { name: "Safe Decisions", approved: false }, // TODO: platform, url, permission
-  { name: "IGC", approved: false }, // TODO: platform, url, permission (still in progress per resume)
-  { name: "Family Tree", approved: false }, // TODO: platform, url, permission
+  { name: "Rally Nation", approved: false }, // TODO: platform, url, permission
   { name: "Enspirit", approved: false }, // TODO: platform, url, permission
+  { name: "IGC", approved: false }, // TODO: platform, url, permission (in progress per resume)
   { name: "Paramount Tea", approved: false }, // TODO: Wix or Squarespace? url, permission
   { name: "Empath Travel", approved: false }, // TODO: Wix or Squarespace? url, permission
   { name: "UGO University", approved: false }, // TODO: Wix or Squarespace? url, permission
@@ -306,30 +305,61 @@ export const awards: string[] = [
 
 export const skills: SkillGroup[] = [
   {
-    name: "Technical Skills",
+    name: "Technical",
     items: [
       "Node.js", "Next.js", "React", "REST APIs", "PostgreSQL", "MongoDB", "MySQL",
-      "Playwright", "Postman", "JMeter", "OpenCV", "Dlib", "MediaPipe", "CNNs",
-      "Random Forest", "Gradient Boosting", "SVR", "LLM APIs", "Git", "GitHub",
-      "Linux", "Google Cloud",
+      "Playwright", "Postman", "JMeter", "OpenCV", "MediaPipe", "LLM APIs (Claude)",
+      "Git", "GitHub", "Google Cloud",
     ],
   },
   {
-    name: "Programming Languages",
-    items: ["TypeScript", "JavaScript", "Python", "SQL", "Java", "C", "R", "HTML", "CSS"],
+    name: "Languages",
+    items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
   },
   {
-    name: "Platforms and Tools",
+    name: "Platforms & tools",
     items: [
       "Webflow", "WordPress", "Squarespace", "Wix", "Hostinger", "SendGrid", "Jira",
       "Claude Code", "Cursor", "ChatGPT", "Gemini",
     ],
-    note: "AI-assisted development with full code review and testing.",
+    // Same wording as the resume.
+    note: "AI-assisted development, with code review and testing",
   },
 ];
 
+export type WorkStep = {
+  title: string;
+  text: string;
+};
+
+/**
+ * "How I work" section.
+ * TODO: rewrite the intro and steps in your own voice (keep it under ~90 words).
+ */
+export const howIWork: { intro: string; steps: WorkStep[] } = {
+  intro: "I use AI tools to move faster. I'm still responsible for everything that ships.",
+  steps: [
+    {
+      title: "Plan",
+      text: "I work out the approach myself before any code gets written.",
+    },
+    {
+      title: "Build with AI",
+      text: "Claude Code, Cursor, ChatGPT and Gemini help me write and refactor faster.",
+    },
+    {
+      title: "Review",
+      text: "I read every change before it ships, so I understand the code I'm responsible for.",
+    },
+    {
+      title: "Test",
+      text: "Playwright for end-to-end flows, Postman for APIs, JMeter for load. When something breaks, I debug it until I know why.",
+    },
+  ],
+};
+
 export const contact = {
-  sentence: "Email is the best way to reach me.",
+  sentence: "Say hello — email is the quickest way to reach me.",
 };
 
 export const seo = {

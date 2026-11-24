@@ -10,7 +10,7 @@ export function Experience() {
   );
 
   return (
-    <Section id="experience" title="Experience" className="pb-16 pt-14">
+    <Section id="experience" title="Experience" className="pb-16 pt-2">
       <ol className="space-y-10">
         {experience.map((role) => (
           <li key={`${role.title}-${role.start}`}>

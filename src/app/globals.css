@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
-/* Warm neutral palette, one quiet accent (links + small markers only). */
+/* Warm, soft palette with ONE accent (terracotta) for links and doodles. */
 :root {
   color-scheme: light dark;
-  --bg: #faf8f4;
-  --fg: #1c1a17;
-  --muted: #5c5650; /* 6.9:1 on --bg */
-  --rule: #e4ded5;
-  --accent: #9a3f1f; /* rust, 6.6:1 on --bg */
+  --bg: #fbf6ee; /* cream */
+  --fg: #2b211c; /* deep warm brown, 14.6:1 on --bg */
+  --muted: #6b5a4f; /* 6.1:1 on --bg */
+  --rule: #e2d4c1;
+  --accent: #a64b2a; /* terracotta, 5.3:1 on --bg */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #161412;
-    --fg: #ece7df;
-    --muted: #a9a198; /* 7.3:1 on --bg */
-    --rule: #2f2b27;
-    --accent: #e39a74; /* 7.9:1 on --bg */
+    --bg: #1f1a17; /* warm charcoal */
+    --fg: #f2e8dc; /* 14.2:1 on --bg */
+    --muted: #b9a99b; /* 7.6:1 on --bg */
+    --rule: #3d342e;
+    --accent: #e8a07a; /* soft terracotta, 8.0:1 on --bg */
   }
 }
 
@@ -26,8 +26,8 @@
   --color-muted: var(--muted);
   --color-rule: var(--rule);
   --color-accent: var(--accent);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
 }
 
 html {
@@ -40,7 +40,12 @@ body {
   line-height: 1.65;
 }
 
-/* Text links: underlined, subtle hover change. */
+/* Fraunces with its "soft" axis turned up for rounder letterforms. */
+.font-serif {
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+}
+
+/* Text links: underlined, colour/underline change on hover. */
 .link {
   color: var(--accent);
   text-decoration: underline;
@@ -49,21 +54,56 @@ body {
   text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 .link:hover {
-  text-decoration-color: currentColor;
+  color: var(--fg);
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
 }
 
-/* The only motion on the page, both off under reduced motion. */
+.doodle {
+  color: var(--accent);
+  transform-origin: center;
+}
+
+/* Hand-drawn wavy divider, coloured with --rule via a CSS mask. */
+.wavy-rule {
+  height: 8px;
+  background-color: var(--rule);
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='8' viewBox='0 0 32 8'%3E%3Cpath d='M0 4c4-3.5 8-3.5 12 0s8 3.5 12 0 6-2.5 8-1.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  -webkit-mask: var(--wave) repeat-x left center / 32px 8px;
+  mask: var(--wave) repeat-x left center / 32px 8px;
+}
+
+/* Gentle motion only, and none at all under prefers-reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
   .link {
-    transition: text-decoration-color 150ms ease;
+    transition:
+      color 150ms ease,
+      text-decoration-color 150ms ease;
+  }
+  .doodle:hover,
+  .wiggle-parent:hover .doodle {
+    animation: wiggle 450ms ease-in-out;
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
   }
 }
 
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
