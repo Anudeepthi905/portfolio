@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HowIWork } from "@/components/HowIWork";
 import { Intro } from "@/components/Intro";
+import { OffTheClock } from "@/components/OffTheClock";
 import { Skills } from "@/components/Skills";
 import { Work } from "@/components/Work";
 import { Writing } from "@/components/Writing";
@@ -25,6 +26,7 @@ export default function Home() {
         <HowIWork />
         <Writing />
         <Skills />
+        <OffTheClock />
         <Contact />
       </main>
       <Footer />

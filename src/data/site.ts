@@ -22,9 +22,7 @@ export type Profile = {
   role: string;
   /** Two or three short first-person sentences. Each string is a paragraph. */
   about: string[];
-  /** Optional: "Currently learning …" line. Hidden when undefined. */
-  currentlyLearning?: string;
-  /** Optional: interests line. Hidden when undefined. */
+  /** Optional: interests line under the intro. Hidden when undefined. */
   interests?: string;
   email: string;
   /** Path to the resume PDF inside /public. */
@@ -127,17 +125,13 @@ export const SITE_URL = "https://portfolio-anu-deepthi.vercel.app";
 export const profile: Profile = {
   name: "Anu Deepthi Kambalapally",
   role: "Software Engineer at Enspirit, Hyderabad",
-  // TODO: rewrite in your own words (drafted from the resume; there is no
-  // content/about-me.md yet).
+  // TODO: rewrite in your own words (drafted from the resume).
   about: [
     "I'm a software engineer at Enspirit. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
     "I studied computer science (data science) at G. Narayanamma Institute of Technology and Science, 2020–2024.",
   ],
-  // TODO: one line on what you're learning right now, e.g. "Currently learning …".
-  currentlyLearning: undefined,
-  interests: "Outside work: art and craft, and dancing.",
+  interests: "Outside work: dancing, art and craft, books, and learning something new.",
   email: "anudeepthi905@gmail.com",
-  // TODO: add the PDF at public/Anu_Deepthi_Resume.pdf (link is broken until then).
   resumePath: "/Anu_Deepthi_Resume.pdf",
 };
 
@@ -356,6 +350,84 @@ export const howIWork: { intro: string; steps: WorkStep[] } = {
       text: "Playwright for end-to-end flows, Postman for APIs, JMeter for load. When something breaks, I debug it until I know why.",
     },
   ],
+};
+
+// ---------------------------------------------------------------------------
+// Off the clock
+// Source: content/about-me.md. Use only what's written there. Anything left
+// undefined or empty is hidden on the site.
+// ---------------------------------------------------------------------------
+
+export type InterestKey = "dancing" | "art" | "books" | "learning";
+
+export type Interest = {
+  /** Picks the doodle. */
+  key: InterestKey;
+  label: string;
+  /** One sentence from about-me.md. Hidden when undefined. */
+  text?: string;
+};
+
+export type Book = {
+  title: string;
+  author: string;
+};
+
+export type LearningEntry = {
+  /** YYYY-MM, shown as "Nov 2026". */
+  date: string;
+  text: string;
+};
+
+export type ArtImage = {
+  /** Path inside /public, e.g. "/images/art/art-1.jpg". */
+  src: string;
+  /** Description from about-me.md. */
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export const offTheClock: {
+  intro?: string;
+  interests: Interest[];
+  books: Book[];
+  nowLearning: LearningEntry[];
+  gallery: ArtImage[];
+} = {
+  // Drafted by Claude; edit freely (keep in sync with content/about-me.md).
+  intro: "A few things that keep me busy outside work.",
+  interests: [
+    {
+      key: "dancing",
+      label: "Dancing",
+      text: "Dancing is how I switch off after a day at a screen.",
+    },
+    {
+      key: "art",
+      label: "Art & craft",
+      text: "I paint and make things by hand. It's a slower, quieter kind of building.",
+    },
+    {
+      key: "books",
+      label: "Books",
+      text: "I read to slow down and to pick up ideas from outside tech.",
+    },
+    {
+      key: "learning",
+      label: "Learning",
+      text: "I like having something new on the go, at work and outside it.",
+    },
+  ],
+  // TODO: 3–5 books from about-me.md, e.g. { title: "…", author: "…" }.
+  // The bookshelf is hidden while this is empty.
+  books: [],
+  // TODO: newest first, e.g. { date: "2026-11", text: "…" }.
+  // Hidden while empty.
+  nowLearning: [],
+  // TODO (optional): 2–3 photos in public/images/art/ with alt text from
+  // about-me.md. Hidden while empty. Never use placeholders.
+  gallery: [],
 };
 
 export const contact = {

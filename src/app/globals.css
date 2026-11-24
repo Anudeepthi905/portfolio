@@ -87,6 +87,14 @@ body {
   .wiggle-parent:hover .doodle {
     animation: wiggle 450ms ease-in-out;
   }
+  /* Book spines lean a little on hover. */
+  .spine {
+    transition: transform 200ms ease;
+    transform-origin: bottom center;
+  }
+  .spine:hover {
+    transform: rotate(-4deg);
+  }
 }
 
 @keyframes wiggle {

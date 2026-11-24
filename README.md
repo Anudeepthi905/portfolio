@@ -28,6 +28,7 @@ Everything on the page comes from one file: `src/data/site.ts`. The components o
 - `projects`: each one has a problem, what I built, one decision, and what I'd do next time. Optional fields left `undefined` don't show up. There's a commented-out slot at the end for the next project.
 - `experience`: dates are `YYYY-MM`. Leave out `end` for the current role.
 - `howIWork`: the intro line and the four steps in the "How I work" section
+- `offTheClock`: the "Off the clock" section, written from `content/about-me.md`. That includes the interest sentences, the bookshelf (3–5 books), the "Now learning" log and an optional "Made by hand" gallery (photos in `public/images/art/`). Empty parts are hidden.
 - `clientSites`: a site only appears once it has a `url` and `approved: true`
 - `SITE_URL`: the site's address, used for SEO and link previews
 - `publications`, `awards`, `skills`

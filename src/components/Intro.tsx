@@ -1,5 +1,5 @@
 import { links, profile } from "@/data/site";
-import { Squiggle } from "./Doodles";
+import { BrushStroke } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
 import { Row } from "./Layout";
 
@@ -13,7 +13,7 @@ export function Intro() {
         >
           {profile.name}
         </h1>
-        <Squiggle className="mt-1 h-auto w-48 sm:w-60" />
+        <BrushStroke className="mt-1.5 h-auto w-52 sm:w-64" />
         <p className="mt-4 text-muted">{profile.role}</p>
 
         <div className="mt-8 max-w-[36rem] space-y-4 text-lg">
@@ -22,12 +22,7 @@ export function Intro() {
           ))}
         </div>
 
-        {(profile.currentlyLearning || profile.interests) && (
-          <div className="mt-5 space-y-1 text-muted">
-            {profile.currentlyLearning && <p>{profile.currentlyLearning}</p>}
-            {profile.interests && <p>{profile.interests}</p>}
-          </div>
-        )}
+        {profile.interests && <p className="mt-5 text-muted">{profile.interests}</p>}
 
         <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
           <li>
