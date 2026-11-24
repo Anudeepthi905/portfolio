@@ -145,8 +145,7 @@ export const links: SiteLinks = {
   github: "https://github.com/Anudeepthi905",
   linkedin: "https://www.linkedin.com/in/anudeepthi",
   email: `mailto:${profile.email}`,
-  // TODO: URL of this site's GitHub repo once you've pushed it.
-  sourceRepo: undefined,
+  sourceRepo: "https://github.com/Anudeepthi905/portfolio",
 };
 
 export const projects: Project[] = [
