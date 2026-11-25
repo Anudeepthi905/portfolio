@@ -1,7 +1,7 @@
 # Kambalapally Anu Deepthi
 
 Software Engineer | Hyderabad, India
-anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905 | portfolio
+anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905 | portfolio-anu-deepthi
 
 ## Experience
 
@@ -11,7 +11,7 @@ anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905
 - Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.
 - Automated end-to-end tests with Playwright and Enspirit's AURA release-validation platform for the Empath and JP+ projects.
 - Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.
-- Guided two interns; currently building a Bazaarvoice integration.
+- Mentored two interns; currently building a Bazaarvoice integration.
 
 ### Software Engineer Intern – Enspirit – Jan 2025 - May 2025
 

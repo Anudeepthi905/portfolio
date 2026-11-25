@@ -1,35 +1,50 @@
 import { awards, publications } from "@/data/site";
 import { ExternalLink } from "./ExternalLink";
-import { Row, Section } from "./Layout";
+import { ArrowUpRightIcon } from "./Icons";
+import { Mono, Section } from "./Section";
 
 export function Writing() {
   return (
-    <Section id="writing" title="Writing & awards" className="pb-16 pt-2">
+    <Section id="writing" num={4} title="Writing & awards">
       <h3 className="sr-only">Publications</h3>
-      <div className="space-y-6">
+      <ul className="space-y-4">
         {publications.map((pub) => (
-          <Row key={pub.doi} margin={pub.year}>
-            <p className="font-serif text-lg italic">{pub.title}</p>
-            <p className="mt-1 text-[0.95rem] text-muted">
-              {pub.role}. {pub.venue}, {pub.year}.
-            </p>
-            <p className="mt-1 text-sm">
-              <ExternalLink href={`https://doi.org/${pub.doi}`} className="link">
-                doi:{pub.doi}
+          <li key={pub.doi}>
+            <article className="rounded-[14px] border border-border bg-surface-alt p-6 sm:p-7">
+              <Mono>
+                {pub.year} · {pub.role}
+              </Mono>
+              <p className="mt-2 max-w-[680px] font-heading text-xl font-semibold tracking-tight text-text">
+                {pub.title}
+              </p>
+              <p className="mt-2 max-w-[680px] text-[15px] text-muted">
+                {pub.venue}, {pub.year}.
+              </p>
+              <ExternalLink
+                href={`https://doi.org/${pub.doi}`}
+                className="mt-3 inline-flex min-h-11 items-center gap-1 font-medium text-accent-strong"
+              >
+                <span className="link">DOI</span>
+                <span className="nudge inline-flex">
+                  <ArrowUpRightIcon />
+                </span>
+                <span className="ml-2 font-mono text-[13px] font-normal text-muted">{pub.doi}</span>
               </ExternalLink>
-            </p>
-          </Row>
+            </article>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <Row className="mt-10" margin="Awards">
-        <h3 className="sr-only">Awards</h3>
-        <ul className="space-y-1.5 text-[0.95rem]">
-          {awards.map((award) => (
-            <li key={award}>{award}</li>
-          ))}
-        </ul>
-      </Row>
+      <h3 className="mt-12 font-heading text-lg font-semibold tracking-tight text-text">
+        Awards & certifications
+      </h3>
+      <ul className="mt-3 max-w-[680px] divide-y divide-border border-y border-border">
+        {awards.map((award) => (
+          <li key={award} className="py-3 text-[15.5px] text-text">
+            {award}
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

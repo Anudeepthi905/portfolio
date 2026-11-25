@@ -5,31 +5,36 @@ import { Header } from "@/components/Header";
 import { HowIWork } from "@/components/HowIWork";
 import { Intro } from "@/components/Intro";
 import { OffTheClock } from "@/components/OffTheClock";
+import { RevealObserver } from "@/components/RevealObserver";
 import { Skills } from "@/components/Skills";
 import { Work } from "@/components/Work";
 import { Writing } from "@/components/Writing";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-[54rem] px-5 sm:px-8">
+    <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-10 focus:rounded-lg focus:bg-bg focus:px-3 focus:py-2"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2.5 focus:text-on-primary"
       >
         Skip to content
       </a>
+      <div id="top" />
       <Header />
-      <main id="main">
-        <Intro />
-        <Work />
-        <Experience />
-        <HowIWork />
-        <Writing />
-        <Skills />
-        <OffTheClock />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+      <div className="mx-auto w-full max-w-[1040px] px-4 sm:px-6 lg:px-8">
+        <main id="main">
+          <Intro />
+          <Work />
+          <Experience />
+          <HowIWork />
+          <Writing />
+          <Skills />
+          <OffTheClock />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+      <RevealObserver />
+    </>
   );
 }

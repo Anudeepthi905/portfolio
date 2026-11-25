@@ -39,3 +39,6 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# local screenshots from scripts/screenshots.mjs
+/screenshots/

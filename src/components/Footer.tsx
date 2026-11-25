@@ -1,7 +1,5 @@
 import { links } from "@/data/site";
-import { WavyRule } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
-import { Row } from "./Layout";
 
 export function Footer() {
   // Evaluated at build time, so it shows the date of the last deploy.
@@ -9,24 +7,24 @@ export function Footer() {
   const updated = now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 
   return (
-    <footer className="pb-10 text-sm text-muted">
-      <WavyRule className="mb-8" />
-      <Row>
-        <p>
-          © {now.getFullYear()} · Designed and built by Anu Deepthi
-          {links.sourceRepo && (
-            <>
-              {" · "}
-              <ExternalLink href={links.sourceRepo} className="link">
-                Source on GitHub
-              </ExternalLink>
-            </>
-          )}
-        </p>
-        <p className="mt-1">
+    <footer className="border-t border-border py-8 font-mono text-[12.5px] text-muted">
+      <p className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2">
+        <span>© {now.getFullYear()}</span>
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <span>Designed and built by Anu Deepthi</span>
+        {links.sourceRepo && (
+          <>
+            <span aria-hidden="true" className="hidden sm:inline">·</span>
+            <ExternalLink href={links.sourceRepo} className="link inline-flex min-h-11 items-center self-start sm:min-h-0">
+              Source on GitHub
+            </ExternalLink>
+          </>
+        )}
+        <span aria-hidden="true" className="hidden sm:inline">·</span>
+        <span>
           Last updated <time dateTime={now.toISOString().slice(0, 10)}>{updated}</time>
-        </p>
-      </Row>
+        </span>
+      </p>
     </footer>
   );
 }

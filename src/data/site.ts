@@ -16,10 +16,17 @@ export type Link = {
   href: string;
 };
 
+/** Pastel tint names (defined as CSS variables in globals.css). */
+export type Tint = "mint" | "peach" | "sky" | "butter" | "rose";
+
 export type Profile = {
   name: string;
-  /** Line under the name. */
+  /** Full role line (used in metadata and the OG image). */
   role: string;
+  /** Short mono label above the name. */
+  label: string;
+  /** Optional "Currently: …" line in the intro. Hidden when undefined. */
+  currently?: string;
   /** Two or three short first-person sentences. Each string is a paragraph. */
   about: string[];
   /** Optional: interests line under the intro. Hidden when undefined. */
@@ -92,6 +99,8 @@ export type Publication = {
 
 export type SkillGroup = {
   name: string;
+  /** Pastel tint for this group's chips. */
+  tint: Tint;
   items: string[];
   note?: string;
 };
@@ -125,12 +134,15 @@ export const SITE_URL = "https://portfolio-anu-deepthi.vercel.app";
 export const profile: Profile = {
   name: "Anu Deepthi Kambalapally",
   role: "Software Engineer at Enspirit, Hyderabad",
+  label: "Software Engineer · Hyderabad",
+  // From the resume: "currently building a Bazaarvoice integration".
+  currently: "building a Bazaarvoice integration",
   // TODO: rewrite in your own words (drafted from the resume).
   about: [
     "I'm a software engineer at Enspirit. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
     "I studied computer science (data science) at G. Narayanamma Institute of Technology and Science, 2020–2024.",
   ],
-  interests: "Outside work: dancing, art and craft, books, and learning something new.",
+  interests: "Outside work: books, art and craft, dance, and games.",
   email: "anudeepthi905@gmail.com",
   resumePath: "/Anu_Deepthi_Resume.pdf",
 };
@@ -242,7 +254,7 @@ export const experience: Role[] = [
       "Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.",
       "Automated end-to-end tests with Playwright and Enspirit's AURA release-validation platform for the Empath and JP+ projects.",
       "Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.",
-      "Guided two interns; currently building a Bazaarvoice integration.",
+      "Mentored two interns; currently building a Bazaarvoice integration.",
     ],
   },
   {
@@ -300,6 +312,7 @@ export const awards: string[] = [
 export const skills: SkillGroup[] = [
   {
     name: "Technical",
+    tint: "sky",
     items: [
       "Node.js", "Next.js", "React", "REST APIs", "PostgreSQL", "MongoDB", "MySQL",
       "Playwright", "Postman", "JMeter", "OpenCV", "MediaPipe", "LLM APIs (Claude)",
@@ -308,10 +321,12 @@ export const skills: SkillGroup[] = [
   },
   {
     name: "Languages",
+    tint: "mint",
     items: ["TypeScript", "JavaScript", "Python", "SQL", "HTML", "CSS"],
   },
   {
     name: "Platforms & tools",
+    tint: "peach",
     items: [
       "Webflow", "WordPress", "Squarespace", "Wix", "Hostinger", "SendGrid", "Jira",
       "Claude Code", "Cursor", "ChatGPT", "Gemini",
@@ -358,12 +373,14 @@ export const howIWork: { intro: string; steps: WorkStep[] } = {
 // undefined or empty is hidden on the site.
 // ---------------------------------------------------------------------------
 
-export type InterestKey = "dancing" | "art" | "books" | "learning";
+export type InterestKey = "books" | "art" | "dance" | "games";
 
 export type Interest = {
-  /** Picks the doodle. */
+  /** Picks the icon. */
   key: InterestKey;
   label: string;
+  /** Pastel tint for this tile. */
+  tint: Tint;
   /** One sentence from about-me.md. Hidden when undefined. */
   text?: string;
 };
@@ -395,28 +412,33 @@ export const offTheClock: {
   nowLearning: LearningEntry[];
   gallery: ArtImage[];
 } = {
-  // Drafted by Claude; edit freely (keep in sync with content/about-me.md).
-  intro: "A few things that keep me busy outside work.",
+  // Keep in sync with content/about-me.md.
+  intro:
+    "Books, VR or the real world: I like stepping into different worlds, and each one makes me curious to know more.",
   interests: [
     {
-      key: "dancing",
-      label: "Dancing",
-      text: "Dancing is how I switch off after a day at a screen.",
+      key: "books",
+      label: "Books",
+      tint: "butter",
+      text: "I read regularly because I enjoy different points of view and the worlds a good book builds.",
     },
     {
       key: "art",
       label: "Art & craft",
-      text: "I paint and make things by hand. It's a slower, quieter kind of building.",
+      tint: "peach",
+      text: "I paint and make things by hand when I get the time.",
     },
     {
-      key: "books",
-      label: "Books",
-      text: "I read to slow down and to pick up ideas from outside tech.",
+      key: "dance",
+      label: "Dance",
+      tint: "rose",
+      text: "I performed on stage through school and college, choreographed our pieces and led the dance team.",
     },
     {
-      key: "learning",
-      label: "Learning",
-      text: "I like having something new on the go, at work and outside it.",
+      key: "games",
+      label: "Games & VR",
+      tint: "sky",
+      text: "I play on PlayStation and in VR. I love being inside VR worlds and I'm curious about how they're built.",
     },
   ],
   // TODO: 3–5 books from about-me.md, e.g. { title: "…", author: "…" }.
@@ -431,7 +453,8 @@ export const offTheClock: {
 };
 
 export const contact = {
-  sentence: "Say hello — email is the quickest way to reach me.",
+  heading: "Say hello",
+  sentence: "Email is the quickest way to reach me.",
 };
 
 export const seo = {

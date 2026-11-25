@@ -1,17 +1,27 @@
 import { skills } from "@/data/site";
-import { Row, Section } from "./Layout";
+import { Mono, Section, tintBg } from "./Section";
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills" className="pb-14 pt-2">
-      <div className="space-y-4">
+    <Section id="skills" num={5} title="Skills">
+      <div className="space-y-8">
         {skills.map((group) => (
-          <Row key={group.name} margin={<h3>{group.name}</h3>}>
-            <p className="text-[0.95rem]">
-              {group.items.join(", ")}
-              {group.note && <span className="text-muted"> ({group.note.replace(/\.$/, "")})</span>}
-            </p>
-          </Row>
+          <div key={group.name}>
+            <h3>
+              <Mono>{group.name}</Mono>
+            </h3>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {group.items.map((item) => (
+                <li
+                  key={item}
+                  className={`chip rounded-full px-3 py-1 text-[14px] text-text hover:brightness-95 dark:hover:brightness-125 ${tintBg[group.tint]}`}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {group.note && <p className="mt-3 text-[14px] text-muted">({group.note})</p>}
+          </div>
         ))}
       </div>
     </Section>

@@ -1,35 +1,40 @@
 import { contact, links, profile } from "@/data/site";
-import { PaperPlane } from "./Doodles";
 import { ExternalLink } from "./ExternalLink";
-import { Row, Section } from "./Layout";
+import { ArrowUpRightIcon } from "./Icons";
+import { Section } from "./Section";
+
+const profileLink = "inline-flex min-h-11 items-center gap-1 text-[15px] font-medium text-accent-strong";
 
 export function Contact() {
   return (
-    <Section
-      id="contact"
-      title="Contact"
-      doodle={<PaperPlane className="h-6 w-9" />}
-      className="pb-20 pt-2"
-    >
-      <Row>
-        <p className="text-lg">{contact.sentence}</p>
-        <p className="mt-3 text-lg">
-          <a href={links.email} className="link">
-            {profile.email}
-          </a>
-        </p>
-        <p className="mt-3 text-muted">
-          Also on{" "}
-          <ExternalLink href={links.linkedin} className="link">
-            LinkedIn
-          </ExternalLink>{" "}
-          and{" "}
-          <ExternalLink href={links.github} className="link">
-            GitHub
+    <Section id="contact" num={7} title={contact.heading} center>
+      <p className="mx-auto max-w-[680px] text-lg text-text">{contact.sentence}</p>
+      <p className="mt-4">
+        <a
+          href={links.email}
+          className="link font-heading text-[clamp(1.25rem,1rem+1.6vw,2rem)] font-semibold tracking-tight"
+        >
+          {profile.email}
+        </a>
+      </p>
+      <ul className="mt-6 flex justify-center gap-6">
+        <li>
+          <ExternalLink href={links.github} className={profileLink}>
+            <span className="link">GitHub</span>
+            <span className="nudge inline-flex">
+              <ArrowUpRightIcon />
+            </span>
           </ExternalLink>
-          .
-        </p>
-      </Row>
+        </li>
+        <li>
+          <ExternalLink href={links.linkedin} className={profileLink}>
+            <span className="link">LinkedIn</span>
+            <span className="nudge inline-flex">
+              <ArrowUpRightIcon />
+            </span>
+          </ExternalLink>
+        </li>
+      </ul>
     </Section>
   );
 }

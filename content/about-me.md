@@ -1,27 +1,27 @@
 # About me (source for the "Off the clock" section)
 
-The lines below are drafts written by Claude. Rewrite them in your own words.
+Keep this in sync with `offTheClock` in src/data/site.ts.
 Anything left blank stays hidden on the site.
 
 ## Intro (one line)
 
-- A few things that keep me busy outside work.
+- Books, VR or the real world: I like stepping into different worlds, and each one makes me curious to know more.
 
-## Dancing (one sentence: what style, how long, where, what you like about it)
+## Books
 
-- Dancing is how I switch off after a day at a screen.
+- I read regularly because I enjoy different points of view and the worlds a good book builds.
 
-## Art & craft (one sentence: painting? which medium? what kind of craft?)
+## Art & craft
 
-- I paint and make things by hand. It's a slower, quieter kind of building.
+- I paint and make things by hand when I get the time.
 
-## Books (one sentence about what you like to read)
+## Dance
 
-- I read to slow down and to pick up ideas from outside tech.
+- I performed on stage through school and college, choreographed our pieces and led the dance team.
 
-## Learning (one sentence)
+## Games & VR
 
-- I like having something new on the go, at work and outside it.
+- I play on PlayStation and in VR. I love being inside VR worlds and I'm curious about how they're built.
 
 ## Bookshelf (3–5 books, "Title — Author")
 
