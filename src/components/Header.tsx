@@ -113,7 +113,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1040px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <a
           href="#top"
-          aria-label="Anu Deepthi Kambalapally, back to top"
+          aria-label="Kambalapally Anu Deepthi, back to top"
           className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-surface-alt font-heading text-sm font-bold tracking-tight text-accent-strong"
           onClick={() => setOpen(false)}
         >

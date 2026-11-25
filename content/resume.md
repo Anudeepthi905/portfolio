@@ -7,36 +7,38 @@ anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905
 
 ### Software Engineer – Enspirit – May 2025 - Present
 
-- Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the company site, and IGC (ongoing).
-- Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.
-- Automated end-to-end tests with Playwright and an in-house AI release-validation platform (AURA) for the Empath and JP+ projects.
-- Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.
+- Built Next.js sites and integrations for client projects, including server-side SendGrid transactional email.
+- Automated end-to-end regression tests with Playwright via the in-house release-validation platform AURA.
+- Reviewed four live applications and wrote technical breakdowns (stack, auth, database, deployment, testing) using AI-assisted code analysis, checking each finding against the code.
+- Delivered client sites on Webflow, WordPress, Squarespace, Wix, and Hostinger.
 - Mentored two interns; currently building a Bazaarvoice integration.
 
 ### Software Engineer Intern – Enspirit – Jan 2025 - May 2025
 
-- Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB for Blue Ribbon.
-- Ran functional API tests in Postman and load tests in JMeter to validate the Blue Ribbon backend.
-- Built Wix and Squarespace sites for Paramount Tea, Empath Travel, UGO University, and Cocoacumin.
+- Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB.
+- Ran functional API tests in Postman and load tests in JMeter to validate the backend.
+- Contributed to client websites on Wix and Squarespace.
 
 ## Projects and Hackathons
 
-### AI Health Companion – IgniteLabs 2026 company AI hackathon (Winner, Best AI Workflow)
+### AI Health Companion – IgniteLabs 2026 Winner · Future Health Challenge 2026
 
-- Developed and debugged assessment features in a five-person team that built a wellness app with 14 camera- and mic-based modules in two weeks (Next.js, NestJS, PostgreSQL, MediaPipe, Claude API).
-- Presented the app's AI design (prompts, non-diagnostic guardrail, validated output) company-wide.
+- Developed and debugged self-check features as full-stack engineer on a five-person team (Next.js, NestJS, PostgreSQL, MediaPipe, Claude API).
+- Team shipped 205 commits and 76 reviewed pull requests in four weeks; safety tests escalated 150/150 crisis messages to a fixed, human-written card.
+- Won Best AI Workflow; presented the app's AI design (prompts, guardrail, validated output) company-wide.
 
 ### Crop Yield Prediction – Academic (Published)
 
 - Compared Random Forest, Gradient Boosting, and SVR models for predicting crop yield from soil nutrient and climate data in three Telangana districts, evaluated with MSE, RMSE, and R².
+- Built a Streamlit app that reads Soil Health Card NPK values via OCR and suggests the best crop with predicted yield (scikit-learn).
 
 ### Multilingual Visual Description and Captioning for Accessibility – Academic
 
-- Built an image-captioning system with an InceptionV3 encoder and attention-based decoder, plus multi-language translation and text-to-speech for accessibility.
+- Built image captioning with an InceptionV3 encoder, attention GRU decoder (TensorFlow), translation and text-to-speech.
 
 ### Driver Drowsiness Detection – Academic
 
-- Built a real-time system using OpenCV and Dlib that tracks eye state from live video and sounds an alarm when the eyes stay closed beyond a set number of frames.
+- Built a real-time OpenCV and Dlib system that sounds an alarm when the eyes stay closed beyond a set number of frames.
 
 ## Education
 
@@ -56,6 +58,6 @@ G. Narayanamma Institute of Technology and Science – B.Tech Computer Science a
 
 ## Skills
 
-- **Technical Skills:** Node.js, Next.js, React, REST APIs, PostgreSQL, MongoDB, MySQL, Playwright, Postman, JMeter, OpenCV, MediaPipe, LLM APIs (Claude), Git, GitHub, Google Cloud
+- **Technical Skills:** Node.js, Next.js, React, REST APIs, PostgreSQL, MongoDB, MySQL, Playwright, Postman, JMeter, OpenCV, MediaPipe, TensorFlow, scikit-learn, Streamlit, Claude API, Git, GitHub, Google Cloud
 - **Programming Languages:** TypeScript, JavaScript, Python, SQL, HTML, CSS
 - **Platforms and Tools:** Webflow, WordPress, Squarespace, Wix, Hostinger, SendGrid, Jira, Claude Code, Cursor, ChatGPT, Gemini (AI-assisted development, with code review and testing)

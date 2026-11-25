@@ -6,7 +6,7 @@ import { Mono, Section } from "./Section";
 
 const parts: { key: "problem" | "built" | "decision" | "differently"; label: string }[] = [
   { key: "problem", label: "Problem" },
-  { key: "built", label: "What I built" },
+  { key: "built", label: "What was built" },
   { key: "decision", label: "One decision" },
   { key: "differently", label: "Next time" },
 ];
@@ -31,18 +31,25 @@ function WriteUp({ project }: { project: Project }) {
 }
 
 function Meta({ project }: { project: Project }) {
+  // "Try it" first when a live URL is set; links without a URL never render.
+  const allLinks = [
+    ...(project.liveUrl ? [{ label: "Try it", href: project.liveUrl }] : []),
+    ...project.links,
+  ].filter((link) => link.href);
+
   return (
     <>
       <p className="mt-5 font-mono text-[13px] leading-relaxed text-muted">
         <span className="sr-only">Tech: </span>
         {project.tech.join(" · ")}
       </p>
-      {project.links.length > 0 && (
+      {allLinks.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-          {project.links.map((link) => (
+          {allLinks.map((link) => (
             <li key={link.href}>
               <ExternalLink
                 href={link.href}
+                aria-label={`${link.label}: ${project.title} (opens in a new tab)`}
                 className="inline-flex min-h-11 items-center gap-1 text-[15px] font-medium text-accent-strong"
               >
                 <span className="link">{link.label}</span>

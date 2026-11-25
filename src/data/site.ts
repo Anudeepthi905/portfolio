@@ -61,7 +61,7 @@ export type Project = {
   label: string;
   /** One line of context under the title. */
   context: string;
-  /** Optional award, shown after the context with a small star. */
+  /** Optional award, shown as a small pastel tag next to the label. */
   award?: string;
   /** The write-up, in this order. Keep the four together under 90 words. */
   problem: string;
@@ -70,8 +70,10 @@ export type Project = {
   differently?: string;
   /** Rendered as plain comma-separated text. */
   tech: string[];
-  /** Only links that actually exist. */
+  /** Only links that actually exist ("Code", "Paper"). Rendered as "Label ↗". */
   links: Link[];
+  /** Optional live app/demo URL, rendered as "Try it ↗". Hidden while undefined. */
+  liveUrl?: string;
   /** Real screenshot only. Leave undefined for no image. */
   image?: ProjectImage;
 };
@@ -132,15 +134,13 @@ export const SITE_URL = "https://portfolio-anu-deepthi.vercel.app";
 // ---------------------------------------------------------------------------
 
 export const profile: Profile = {
-  name: "Anu Deepthi Kambalapally",
+  name: "Kambalapally Anu Deepthi",
   role: "Software Engineer · Hyderabad",
   label: "Software Engineer · Hyderabad",
   // From the resume: "currently building a Bazaarvoice integration".
   currently: "building a Bazaarvoice integration",
-  // TODO: rewrite in your own words (drafted from the resume).
   about: [
-    "I'm a software engineer. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
-    "I studied computer science (data science) at G. Narayanamma Institute of Technology and Science, 2020–2024.",
+    "Software engineer building web apps, integrations and AI-powered features, with Playwright tests that check each release. B.Tech in Computer Science and Engineering (Data Science), and co-author of a published paper on crop yield prediction.",
   ],
   interests: "Outside work: books, art and craft, dance, and games.",
   email: "anudeepthi905@gmail.com",
@@ -158,22 +158,21 @@ export const projects: Project[] = [
   {
     title: "AI Health Companion",
     label: "IgniteLabs 2026",
-    // TODO: add your team name if you want it shown.
-    context: "Five-person team, IgniteLabs 2026 company AI hackathon.",
-    award: "Won Best AI Workflow",
+    award: "Winner, Best AI Workflow",
+    context: "Future Health Digital Innovation Challenge 2026",
     problem:
-      "We had two weeks to build a wellness app with 14 self-guided modules that work with only a camera and microphone.",
-    // TODO: name the specific modules or pieces you owned.
+      "Most people know which habits keep them well; the hard part is sustaining them. The app is built around starting, slipping and coming back.",
     built:
-      "I developed and debugged the assessment features. I later presented the app's AI design at a company-wide knowledge session.",
-    // TODO: add one sentence on why the team chose this.
+      "Full-stack engineer on a five-person team. Developed and debugged the self-check features; presented the app's AI design company-wide. Team shipped 205 commits and 76 reviewed pull requests in four weeks.",
     decision:
-      "Every model response is checked against a schema, and a guardrail keeps results non-diagnostic.",
+      "Crisis messages never get an AI reply: a keyword check plus an AI check route them to a fixed, human-written card with emergency numbers (150/150 escalated in testing).",
     // TODO: what you'd do differently.
     differently: undefined,
     tech: ["Next.js", "NestJS", "PostgreSQL", "MediaPipe", "Claude API"],
-    // TODO: add a demo or repo link if one is public.
     links: [],
+    // TODO: live app URL. Don't add it until you've confirmed you may share it
+    // publicly. Never put login credentials here.
+    liveUrl: undefined,
     // TODO: add a real screenshot in public/images/ and fill this in.
     image: undefined,
   },
@@ -183,16 +182,19 @@ export const projects: Project[] = [
     context: "Academic project, published in SETSCI Vol. 17 (2024).",
     problem:
       "Predict crop yield for three Telangana districts from soil nutrient and climate data.",
-    // TODO: confirm this was your part rather than the whole team's.
     built:
-      "I compared Random Forest, Gradient Boosting and Support Vector Regression, scoring each with MSE, RMSE and R².",
-    // TODO: which model did best, and why you trusted that result.
+      "Compared Random Forest, Gradient Boosting and SVR on soil nutrient and climate data from three Telangana districts, scored with MSE, RMSE and R². Built a Streamlit app that reads Soil Health Card NPK values via OCR and suggests the best crop with predicted yield.",
+    // TODO: which model did best, and why that result was trusted.
     decision: undefined,
     // TODO: what you'd do differently.
     differently: undefined,
-    // TODO: add the language and libraries (e.g. Python, scikit-learn) if you used them.
-    tech: ["Random Forest", "Gradient Boosting", "SVR"],
-    links: [{ label: "Paper (DOI)", href: "https://doi.org/10.36287/setsci.17.1.0040" }],
+    tech: ["Python", "scikit-learn", "Streamlit", "OCR"],
+    links: [
+      { label: "Paper", href: "https://doi.org/10.36287/setsci.17.1.0040" },
+      { label: "Code", href: "https://github.com/Anudeepthi905/crop-yield-prediction" },
+    ],
+    // TODO: Streamlit Cloud URL once it's deployed.
+    liveUrl: undefined,
     image: undefined,
   },
   {
@@ -201,17 +203,18 @@ export const projects: Project[] = [
     context: "Academic project, “Multilingual Visual Description and Captioning for Accessibility”.",
     problem:
       "Give people with visual or hearing impairments image descriptions they can read or hear, in more than one language.",
-    // TODO: your part, if this was a team project.
     built:
-      "An InceptionV3 encoder paired with an attention-based decoder writes the caption. The system then translates it and reads it aloud.",
+      "InceptionV3 encoder with an attention GRU decoder (TensorFlow) writes the caption, which is then translated and read aloud for people with visual or hearing impairments.",
     // TODO: one decision and why (e.g. why InceptionV3, or why attention).
     decision: undefined,
     // TODO: what you'd do differently.
     differently: undefined,
-    // TODO: add the frameworks you used.
-    tech: ["InceptionV3", "attention decoder", "translation", "text-to-speech"],
-    // TODO: add a repo or demo link if one is public.
-    links: [],
+    tech: ["Python", "TensorFlow", "InceptionV3", "Streamlit", "text-to-speech"],
+    links: [
+      { label: "Code", href: "https://github.com/Anudeepthi905/multilingual-image-captioning" },
+    ],
+    // TODO: live demo URL.
+    liveUrl: undefined,
     image: undefined,
   },
   {
@@ -220,14 +223,15 @@ export const projects: Project[] = [
     context: "Academic project.",
     problem: "Notice in real time when a driver's eyes stay closed, and warn them.",
     built: "OpenCV reads the live video, Dlib tracks eye state, and an alarm sounds.",
-    // TODO: add why (e.g. so normal blinks don't trigger it) and the threshold you used.
+    // TODO: add why (e.g. so normal blinks don't trigger it) and the threshold used.
     decision:
       "The alarm fires only after the eyes stay closed for a set number of frames.",
     // TODO: what you'd do differently.
     differently: undefined,
     tech: ["OpenCV", "Dlib"],
-    // TODO: add a repo or demo link if one is public.
-    links: [],
+    links: [
+      { label: "Code", href: "https://github.com/Anudeepthi905/driver-drowsiness-detection" },
+    ],
     image: undefined,
   },
   // TODO (future): RAG project. Uncomment and fill in when it's ready.
@@ -241,6 +245,7 @@ export const projects: Project[] = [
   //   differently: "",
   //   tech: [],
   //   links: [],
+  //   liveUrl: undefined,
   // },
 ];
 
@@ -250,10 +255,10 @@ export const experience: Role[] = [
     company: "Enspirit",
     start: "2025-05",
     bullets: [
-      "Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the company site, and IGC (ongoing).",
-      "Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.",
-      "Automated end-to-end tests with Playwright and an in-house AI release-validation platform (AURA) for the Empath and JP+ projects.",
-      "Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.",
+      "Built Next.js sites and integrations for client projects, including server-side SendGrid transactional email.",
+      "Automated end-to-end regression tests with Playwright via the in-house release-validation platform AURA.",
+      "Reviewed four live applications and wrote technical breakdowns (stack, auth, database, deployment, testing) using AI-assisted code analysis, checking each finding against the code.",
+      "Delivered client sites on Webflow, WordPress, Squarespace, Wix, and Hostinger.",
       "Mentored two interns; currently building a Bazaarvoice integration.",
     ],
   },
@@ -263,32 +268,19 @@ export const experience: Role[] = [
     start: "2025-01",
     end: "2025-05",
     bullets: [
-      "Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB for Blue Ribbon.",
-      "Ran functional API tests in Postman and load tests in JMeter to validate the Blue Ribbon backend.",
-      "Built Wix and Squarespace sites for Paramount Tea, Empath Travel, UGO University, and Cocoacumin.",
+      "Built and tested CRUD operations in Node.js against PostgreSQL and MongoDB.",
+      "Ran functional API tests in Postman and load tests in JMeter to validate the backend.",
+      "Contributed to client websites on Wix and Squarespace.",
     ],
   },
 ];
 
 /**
- * "Sites I've worked on". Names are from the resume. Nothing renders until a
- * site has a url AND approved: true; the whole list is hidden while none do.
- *
- * TODO: for each site your employer lets you show, add platform + live URL and set
- * approved: true. Delete the ones you can't show.
+ * "Client sites" list under Experience. Hidden while empty. Only add a site
+ * once your employer has confirmed you may show it publicly, e.g.
+ *   { name: "...", platform: "Webflow", url: "https://...", approved: true }
  */
-export const clientSites: ClientSite[] = [
-  { name: "JP+", approved: false }, // TODO: platform, url, permission
-  { name: "Encore", approved: false }, // TODO: platform, url, permission
-  { name: "AHM", approved: false }, // TODO: platform, url, permission
-  { name: "Rally Nation", approved: false }, // TODO: platform, url, permission
-  { name: "Company website", approved: false }, // TODO: platform, url, permission
-  { name: "IGC", approved: false }, // TODO: platform, url, permission (in progress per resume)
-  { name: "Paramount Tea", approved: false }, // TODO: Wix or Squarespace? url, permission
-  { name: "Empath Travel", approved: false }, // TODO: Wix or Squarespace? url, permission
-  { name: "UGO University", approved: false }, // TODO: Wix or Squarespace? url, permission
-  { name: "Cocoacumin", approved: false }, // TODO: Wix or Squarespace? url, permission
-];
+export const clientSites: ClientSite[] = [];
 
 export const publications: Publication[] = [
   {
@@ -315,8 +307,8 @@ export const skills: SkillGroup[] = [
     tint: "sky",
     items: [
       "Node.js", "Next.js", "React", "REST APIs", "PostgreSQL", "MongoDB", "MySQL",
-      "Playwright", "Postman", "JMeter", "OpenCV", "MediaPipe", "LLM APIs (Claude)",
-      "Git", "GitHub", "Google Cloud",
+      "Playwright", "Postman", "JMeter", "OpenCV", "MediaPipe", "TensorFlow", "scikit-learn",
+      "Streamlit", "Claude API", "Git", "GitHub", "Google Cloud",
     ],
   },
   {
@@ -343,26 +335,25 @@ export type WorkStep = {
 
 /**
  * "How I work" section.
- * TODO: rewrite the intro and steps in your own voice (keep it under ~90 words).
  */
 export const howIWork: { intro: string; steps: WorkStep[] } = {
-  intro: "I use AI tools to move faster. I'm still responsible for everything that ships.",
+  intro: "AI tools speed up the work; responsibility for what ships stays with the engineer.",
   steps: [
     {
       title: "Plan",
-      text: "I work out the approach myself before any code gets written.",
+      text: "Approach worked out before any code is written.",
     },
     {
       title: "Build with AI",
-      text: "Claude Code, Cursor, ChatGPT and Gemini help me write and refactor faster.",
+      text: "Claude Code, Cursor, ChatGPT and Gemini for writing and refactoring.",
     },
     {
       title: "Review",
-      text: "I read every change before it ships, so I understand the code I'm responsible for.",
+      text: "Every change read and understood before it ships.",
     },
     {
       title: "Test",
-      text: "Playwright for end-to-end flows, Postman for APIs, JMeter for load. When something breaks, I debug it until I know why.",
+      text: "Playwright for end-to-end flows, Postman for APIs, JMeter for load; failures debugged to the root cause.",
     },
   ],
 };
@@ -460,5 +451,5 @@ export const contact = {
 export const seo = {
   title: `${profile.name} — Software Engineer`,
   description:
-    "Anu Deepthi Kambalapally is a software engineer in Hyderabad. Projects, experience, a published paper, and contact details.",
+    "Kambalapally Anu Deepthi is a software engineer in Hyderabad. Projects, experience, a published paper, and contact details.",
 };

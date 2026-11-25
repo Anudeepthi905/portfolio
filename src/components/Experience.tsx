@@ -59,7 +59,7 @@ export function Experience() {
 
       {sites.length > 0 && (
         <div className="mt-6 md:pl-[calc(9.5rem+2.5rem+2rem)]">
-          <h3 className="font-heading text-lg font-semibold">Sites I&apos;ve worked on</h3>
+          <h3 className="font-heading text-lg font-semibold">Client sites</h3>
           <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
             {sites.map((site) => (
               <li key={site.name}>

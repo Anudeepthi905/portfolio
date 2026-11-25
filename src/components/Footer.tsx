@@ -11,7 +11,7 @@ export function Footer() {
       <p className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2">
         <span>© {now.getFullYear()}</span>
         <span aria-hidden="true" className="hidden sm:inline">·</span>
-        <span>Designed and built by Anu Deepthi</span>
+        <span>Designed and built by Kambalapally Anu Deepthi</span>
         {links.sourceRepo && (
           <>
             <span aria-hidden="true" className="hidden sm:inline">·</span>
