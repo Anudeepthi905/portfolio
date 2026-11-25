@@ -7,9 +7,9 @@ anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905
 
 ### Software Engineer – Enspirit – May 2025 - Present
 
-- Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the Enspirit website, and IGC (in progress).
+- Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the company site, and IGC (ongoing).
 - Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.
-- Automated end-to-end tests with Playwright and Enspirit's AURA release-validation platform for the Empath and JP+ projects.
+- Automated end-to-end tests with Playwright and an in-house AI release-validation platform (AURA) for the Empath and JP+ projects.
 - Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.
 - Mentored two interns; currently building a Bazaarvoice integration.
 
@@ -21,7 +21,7 @@ anudeepthi905@gmail.com | linkedin.com/in/anu-deepthi | github.com/Anudeepthi905
 
 ## Projects and Hackathons
 
-### AI Health Companion – Enspirit IgniteLabs 2026 (Winner, Best AI Workflow)
+### AI Health Companion – IgniteLabs 2026 company AI hackathon (Winner, Best AI Workflow)
 
 - Developed and debugged assessment features in a five-person team that built a wellness app with 14 camera- and mic-based modules in two weeks (Next.js, NestJS, PostgreSQL, MediaPipe, Claude API).
 - Presented the app's AI design (prompts, non-diagnostic guardrail, validated output) company-wide.
@@ -48,7 +48,7 @@ G. Narayanamma Institute of Technology and Science – B.Tech Computer Science a
 
 ## Certifications and Achievements
 
-- Consistency Award and Punctuality Pro Award at Enspirit; Growth Hackers team, Elevate Season One.
+- Consistency Award and Punctuality Pro Award at work; Growth Hackers team, Elevate Season One.
 - 2nd position, Major Project Expo, G. Narayanamma Institute of Technology and Science.
 - Merit Certificate, MEGATHON 2022, E-Cell IIIT Hyderabad.
 - 30 Days of Google Cloud (2021): Cloud Engineering and Data Science & Machine Learning tracks.

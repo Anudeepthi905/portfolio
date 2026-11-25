@@ -1,6 +1,6 @@
 # anudeepthi portfolio
 
-My personal website. One page: a short intro, selected projects, my experience at Enspirit, a published paper and awards, skills, and how to reach me.
+My personal website. One page: a short intro, selected projects, my work experience, a published paper and awards, skills, and how to reach me.
 
 It's a Next.js (App Router) site written in TypeScript and styled with Tailwind CSS. There's no backend, database, analytics or contact form. Every part of the page is a Server Component, so the browser gets plain HTML and CSS.
 

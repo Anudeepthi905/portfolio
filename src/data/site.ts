@@ -133,13 +133,13 @@ export const SITE_URL = "https://portfolio-anu-deepthi.vercel.app";
 
 export const profile: Profile = {
   name: "Anu Deepthi Kambalapally",
-  role: "Software Engineer at Enspirit, Hyderabad",
+  role: "Software Engineer · Hyderabad",
   label: "Software Engineer · Hyderabad",
   // From the resume: "currently building a Bazaarvoice integration".
   currently: "building a Bazaarvoice integration",
   // TODO: rewrite in your own words (drafted from the resume).
   about: [
-    "I'm a software engineer at Enspirit. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
+    "I'm a software engineer. I've built 18 client and company websites since January 2025, on everything from Next.js to Wix, and I write the Playwright tests that check releases.",
     "I studied computer science (data science) at G. Narayanamma Institute of Technology and Science, 2020–2024.",
   ],
   interests: "Outside work: books, art and craft, dance, and games.",
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     title: "AI Health Companion",
     label: "IgniteLabs 2026",
     // TODO: add your team name if you want it shown.
-    context: "Five-person team, Enspirit IgniteLabs 2026.",
+    context: "Five-person team, IgniteLabs 2026 company AI hackathon.",
     award: "Won Best AI Workflow",
     problem:
       "We had two weeks to build a wellness app with 14 self-guided modules that work with only a camera and microphone.",
@@ -250,9 +250,9 @@ export const experience: Role[] = [
     company: "Enspirit",
     start: "2025-05",
     bullets: [
-      "Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the Enspirit website, and IGC (in progress).",
+      "Built 18 client and company websites since Jan 2025 on Webflow, Next.js, WordPress, Squarespace, Wix, and Hostinger, including JP+, Encore, AHM, Rally Nation, the company site, and IGC (ongoing).",
       "Integrated SendGrid transactional email into the JP+ platform, keeping the API key server-side.",
-      "Automated end-to-end tests with Playwright and Enspirit's AURA release-validation platform for the Empath and JP+ projects.",
+      "Automated end-to-end tests with Playwright and an in-house AI release-validation platform (AURA) for the Empath and JP+ projects.",
       "Audited four production codebases with AI-assisted analysis, documenting stack, auth, database, CI/CD, and testing, and verifying every finding against the source files.",
       "Mentored two interns; currently building a Bazaarvoice integration.",
     ],
@@ -274,7 +274,7 @@ export const experience: Role[] = [
  * "Sites I've worked on". Names are from the resume. Nothing renders until a
  * site has a url AND approved: true; the whole list is hidden while none do.
  *
- * TODO: for each site Enspirit lets you show, add platform + live URL and set
+ * TODO: for each site your employer lets you show, add platform + live URL and set
  * approved: true. Delete the ones you can't show.
  */
 export const clientSites: ClientSite[] = [
@@ -282,7 +282,7 @@ export const clientSites: ClientSite[] = [
   { name: "Encore", approved: false }, // TODO: platform, url, permission
   { name: "AHM", approved: false }, // TODO: platform, url, permission
   { name: "Rally Nation", approved: false }, // TODO: platform, url, permission
-  { name: "Enspirit", approved: false }, // TODO: platform, url, permission
+  { name: "Company website", approved: false }, // TODO: platform, url, permission
   { name: "IGC", approved: false }, // TODO: platform, url, permission (in progress per resume)
   { name: "Paramount Tea", approved: false }, // TODO: Wix or Squarespace? url, permission
   { name: "Empath Travel", approved: false }, // TODO: Wix or Squarespace? url, permission
@@ -302,7 +302,7 @@ export const publications: Publication[] = [
 ];
 
 export const awards: string[] = [
-  "Consistency Award and Punctuality Pro Award at Enspirit; Growth Hackers team, Elevate Season One.",
+  "Consistency Award and Punctuality Pro Award at work; Growth Hackers team, Elevate Season One.",
   "2nd position, Major Project Expo, G. Narayanamma Institute of Technology and Science.",
   "Merit Certificate, MEGATHON 2022, E-Cell IIIT Hyderabad.",
   "30 Days of Google Cloud (2021): Cloud Engineering and Data Science & Machine Learning tracks.",
@@ -460,5 +460,5 @@ export const contact = {
 export const seo = {
   title: `${profile.name} — Software Engineer`,
   description:
-    "Anu Deepthi Kambalapally is a software engineer at Enspirit in Hyderabad. Projects, experience, a published paper, and contact details.",
+    "Anu Deepthi Kambalapally is a software engineer in Hyderabad. Projects, experience, a published paper, and contact details.",
 };
